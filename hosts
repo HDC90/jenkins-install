@@ -15,6 +15,9 @@
 ## 192.168.100.1
 ## 192.168.100.10
 
+[jenkins]
+192.168.229.158
+
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
 ## [webservers]

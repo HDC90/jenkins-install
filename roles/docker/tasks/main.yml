@@ -1,0 +1,6 @@
+---
+# tasks file for docker
+- name: install docker
+  include: docker.yml
+- name: install jenkins
+  include: jenkins.yml

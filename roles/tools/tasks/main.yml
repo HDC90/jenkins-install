@@ -1,0 +1,16 @@
+---
+# tasks file for tools
+- name: install tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - python-pip
+    - net-tools
+- name: droits user
+  file:
+    path: /srv/docker/jenkins/jenkins-data
+    state: directory
+    owner: 1000
+    group: 1000
