@@ -4,3 +4,5 @@
   include: docker.yml
 - name: install jenkins
   include: jenkins.yml
+- name: install gitlab
+  include: gitlab.yml

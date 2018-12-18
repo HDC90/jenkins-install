@@ -1,0 +1,26 @@
+---
+- name: image gitlab
+  docker_container:
+    hostname: gitlab.michaelgitlab.org
+    name: gitlab
+    image: gitlab/gitlab-ce
+    env:
+     TZ: Europe/Paris
+     GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['time_zone'] = 'Europe/Paris'
+        gitlab_rails['gitlab_email_from'] = 'noreply@x3rus.com'
+        gitlab_rails['manage_backup_path'] = true
+        gitlab_rails['backup_path'] = "/var/opt/gitlab/backups"
+        gitlab_rails['backup_archive_permissions'] = 0640
+        gitlab_rails['backup_keep_time'] = 604800
+        gitlab_rails['smtp_enable'] = true
+    volumes:
+     - '/srv/docker/jenkins/gitlab/etc:/etc/gitlab'
+     - '/srv/docker/jenkins/gitlab/logs:/var/log/gitlab'
+     - '/srv/docker/jenkins/gitlab/data/:/var/opt/gitlab'
+    state: started
+    restart: yes
+    ports:
+     - 80:80
+     - 443:443
+     - 22:22
