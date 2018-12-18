@@ -6,3 +6,5 @@
   include: jenkins.yml
 - name: install gitlab
   include: gitlab.yml
+- name: install slave
+  include: jenkins-slave.yml

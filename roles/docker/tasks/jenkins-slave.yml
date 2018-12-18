@@ -1,0 +1,11 @@
+---
+- name: image jenkins slave
+  docker_image:
+    name: slave
+    path: .
+    state: build
+- name: Running the container
+  docker_container:
+    image: slave:latest
+    path: .
+    state: running
